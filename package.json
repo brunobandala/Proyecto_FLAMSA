@@ -1,0 +1,69 @@
+{
+    "name": "com.proyectos.pruebafletes",
+    "displayName": "FletesApp",
+    "version": "1.0.0",
+    "description": "test app para fletes",
+    "build": {
+        "appId": "com.app.flamsa",
+        "files": "./dist/**/*",
+        "productName": "FLAMSA"
+    },
+    "scripts": {
+        "serve-dev": "npm run build-dev && npm-run-all -p webpack-run-dev start-desktop-dev",
+        "start-desktop-dev": "wait-on http-get://localhost:9001/ && electron ./electron.init.js  --web",
+        "build-dev": "webpack",
+        "webpack-run-dev": "webpack-dev-server",
+        "pack": "npm run build-dev && electron-builder --dir",
+        "dist": "npm run build-dev && electron-builder",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "devDependencies": {
+        "@types/angular": "^1.6.32",
+        "@types/core-js": "^2.5.0",
+        "@types/node": "^8.0.31",
+        "awesome-typescript-loader": "^5.0.0-1",
+        "css-loader": "^2.0.0",
+        "electron": "^3.0.7",
+        "electron-builder": "^20.28.4",
+        "electron-reload": "^1.4.0",
+        "extract-text-webpack-plugin": "^3.0.0",
+        "html-loader": "^0.5.5",
+        "html-webpack-plugin": "^3.2.0",
+        "npm-run-all": "^4.1.5",
+        "portfinder": "^1.0.20",
+        "raw-loader": "^0.5.1",
+        "reflect-metadata": "^0.1.12",
+        "style-loader": "^0.23.1",
+        "tapable": "^1.1.1",
+        "to-string-loader": "^1.1.5",
+        "typescript": "^2.5.3",
+        "uglifyjs-webpack-plugin": "^2.0.1",
+        "wait-on": "^3.2.0",
+        "webpack": "^4.26.1",
+        "webpack-cli": "^3.1.2",
+        "webpack-dev-server": "^3.1.10"
+    },
+    "dependencies": {
+        "@angular/common": "^4.4.4",
+        "@angular/compiler": "^4.4.4",
+        "@angular/core": "^4.4.4",
+        "@angular/platform-browser": "^4.4.4",
+        "@angular/platform-browser-dynamic": "^4.4.4",
+        "angular2-template-loader": "^0.6.2",
+        "cordova-android": "^7.1.4",
+        "cordova-plugin-whitelist": "^1.3.3",
+        "core-js": "^2.5.1",
+        "lodash": "^4.17.11",
+        "rxjs": "^5.4.3",
+        "tapable": "^1.1.1",
+        "zone.js": "^0.8.18"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {}
+        },
+        "platforms": [
+            "android"
+        ]
+    }
+}
